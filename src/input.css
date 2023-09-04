@@ -1,3 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+ @font-face{ 
+    font-family: Didot; 
+    src: url("../main/fonts/GFSDidot-Regular.ttf") format("truetype");
+ }
+}
