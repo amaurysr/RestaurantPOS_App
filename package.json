@@ -1,0 +1,15 @@
+{
+  "name": "pointofservices_app",
+  "version": "1.0.0",
+  "description": "* Point of Services/Sales App that is currently in the works * Link to access site: https://raw.githack.com/amaurysr/PointOfServices_App/main/main/index.html?token=GHSAT0AAAAAACGU4KDRFB3K2OHVUTQGY6VKZHTU5OQ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "dev": "tailwindcss -i ./src/input.css -o ./main/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
