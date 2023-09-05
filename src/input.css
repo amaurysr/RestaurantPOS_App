@@ -1,11 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=GFS+Didot&family=Playfair+Display+SC:ital@1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
- @font-face{ 
-    font-family: Didot; 
-    src: url("../main/fonts/GFSDidot-Regular.ttf") format("truetype");
- }
-}
