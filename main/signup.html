@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant POS</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/code.js"></script>
     <style>
         #pattern1{
             background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1));
@@ -38,9 +39,23 @@
                 <label for="password" class="block text-black">Password:</label>
                 <input type="password" id="password" name="password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
             </div>
-            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 mb-2">Login</button>
-            <a href="signup.html" class="hover:text-red-700 text-blue-600 underline">Create an Account</a><br>
-            <a href="#" class="hover:text-red-700 text-blue-600 underline">Forgot your Password</a>
+            <div class="mb-4">
+                <label for="verify-password" class="block text-black">Verify Password:</label>
+                <input type="password" id="verify-password" name="verify-password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+                <label for="firstname" class="block text-black">First Name:</label>
+                <input type="text" id="firstname" name="firstname" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
+            </div>
+            <div class="mb-4">
+                <label for="lastname" class="block text-black">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
+            </div>
+            <div class="mb-4">
+                <label for="username" class="block text-black">Username:</label>
+                <input type="text" id="name" name="username" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" onclick="reDirect()">Sign Up</button>
         </form>        
     </main>
     <footer>
