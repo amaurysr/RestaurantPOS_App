@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Restaurant POS</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #pattern1{
+            background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1))
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="text-center">
-                <h1 class=" bg-fancy-pattern font-playfair-display-sc text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth border-b-white border-b-4">De Luxe Restaurant</h1>
+                <h1 id="pattern1" class="font-playfair-display-sc text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth border-inherit">De Luxe Restaurant</h1>
             </div>
         </nav>
     </header>
     <main class="flex flex-col justify-center items-center min-h-screen bg-fancy-restaurant sm:py-20 md:py-24 lg:py-28 xl:py-32">
-        <button href="#" class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-white border-4 xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl">Client</button>
-        <button href="#" class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 border-white border-4 xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl">Admin</button>
+        <a href="login.html">
+            <button class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl">Client</button>
+        </a>
+        <a href="login.html">
+            <button class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl">Admin</button>
+        </a>
     </main>
     <footer>
         <div>
-            <p class="bg-fancy-pattern text-white text-center py-4 border-t-white border-t-4">&copy; 2023 My Website</p>
+            <p id="pattern1" class="bg-fancy-pattern text-white text-center py-4 border-inherit">&copy; 2023 My Website</p>
         </div>
     </footer>
 </body>

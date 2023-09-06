@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant POS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #pattern1{
+            background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1))
+        }
+        form
+        {
+            background-color: #ffffff;
+            opacity: 1;
+            background-image: radial-gradient(circle at center center, #fafafa, #ffffff), repeating-radial-gradient(circle at center center, #fafafa, #fafafa, 40px, transparent 80px, transparent 40px);
+            background-blend-mode: multiply;;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="text-center">
+                <h1 id="pattern1" class=" bg-fancy-pattern font-playfair-display-sc text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
+            </div>
+        </nav>
+    </header>
+    <main class="flex flex-col justify-center items-center min-h-screen bg-fancy-restaurant sm:py-20 md:py-24 lg:py-28 xl:py-32">
+        <form class="xxs:p-10 xs:p-10 sm:p-10 md:p-20 lg:p-30 xl:p-96 border rounded-full">
+            <div class="mb-4">
+                <label for="email" class="block text-black">Email:</label>
+                <input type="email" id="email" name="email" class="bg-black text-white border rounded px-3 py-2 w-full" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-black">Password:</label>
+                <input type="password" id="password" name="password" class="bg-black text-white border rounded px-3 py-2 w-full" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600">Login</button>
+        </form>
+    </main>
+    <footer>
+        <div>
+            <p id="pattern1" class="text-white text-center py-4">&copy; 2023 My Website</p>
+        </div>
+    </footer>
+</body>
+</html>

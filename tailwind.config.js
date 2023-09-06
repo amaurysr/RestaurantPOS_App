@@ -11,6 +11,7 @@ module.exports = {
       backgroundImage: {
         'fancy-restaurant': "url('/main/images/fancy.avif')",
         'fancy-pattern': "url('/main/patterns/fancy-cushion.webp')",
+        'confetti': "url('/main/patterns/confetti.png')"
       },
       screens: {
         'xs': '320px',
