@@ -29,7 +29,7 @@
         </nav>
     </header>
     <main class="flex flex-col justify-center items-center min-h-screen sm:py-20 md:py-24 lg:py-28 xl:py-32">
-        <form action="/main/scripts/sqlcomm.js" method="POST" class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
+        <form class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
             <h1 class="text-2xl text-center font-mono">Sign In</h1>
             <div class="mb-4">
                 <label for="email" class="block text-black">Email:</label>
@@ -55,8 +55,32 @@
                 <label for="username" class="block text-black">Username:</label>
                 <input type="text" id="name" name="username" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
             </div>
-            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" onclick="reDirect()">Sign Up</button>
+            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" >Sign Up</button>
         </form>        
+        <script>
+            const form = document.querySelector('form');
+             
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevents HTML submission 
+
+                //'application/x-www-form-urlencoded' or 'multipart/form-data'
+                const fd = new FormData(form);
+                location.href = "login.html";
+
+                const urlEncoded = new URLSearchParams(fd).toString();
+
+                fetch('http://localhost:5500/upload', {
+                    method: "POST",
+                    body: urlEncoded,
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded',
+
+                    }
+                })
+
+
+            });
+        </script>
     </main>
     <footer>
         <div>

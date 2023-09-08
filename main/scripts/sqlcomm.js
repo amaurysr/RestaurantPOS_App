@@ -2,11 +2,11 @@ const mysql2 = require('mysql2');
 const express = require('express'); 
 const app = express(); 
 const bodyParser = require('body-parser');
+const { createConnection } = require('mysql2/promise');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json);
-
-const connection = mysql2.createConnection({
+const connection = createConnection({
     host: 'localhost',
     user: 'user',
     password: '04D@ckdocko123',
@@ -20,7 +20,7 @@ connection.connect((err) => {
     }
   });
 
-app.post('/main/scripts/sqlcomm.js', (req/res) => {
+app.post('/main/scripts/sqlcomm.js', (req/res), {
     const :{email, password, firstname, lastname, username} = req.body 
     
 
