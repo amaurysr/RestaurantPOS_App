@@ -21,7 +21,8 @@ connection.connect((err) => {
   });
 
 app.post('/main/scripts/sqlcomm.js', (req/res) => {
-    const {email, password, firstname, lastname, username} = req.body; 
+    const :{email, password, firstname, lastname, username} = req.body 
+    
 
 });
 
