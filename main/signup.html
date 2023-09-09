@@ -63,8 +63,8 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevents HTML submission 
 
-                //'application/x-www-form-urlencoded' or 'multipart/form-data'
                 const fd = new FormData(form);
+                // redirects back to login.html
                 location.href = "login.html";
 
                 const urlEncoded = new URLSearchParams(fd).toString();
@@ -73,11 +73,11 @@
                     method: "POST",
                     body: urlEncoded,
                     headers: {
+                        //'application/x-www-form-urlencoded' or 'multipart/form-data'
                         'Content-type': 'application/x-www-form-urlencoded',
 
                     }
                 })
-
 
             });
         </script>

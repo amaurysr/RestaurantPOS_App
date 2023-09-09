@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+
 app.use(cors()); // Allow request from any IP 
 
 app.use(express.urlencoded({
