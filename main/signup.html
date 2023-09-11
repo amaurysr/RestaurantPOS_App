@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant POS</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scripts/code.js"></script>
     <style>
         #pattern1{
             background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1));
@@ -37,11 +36,11 @@
             </div>
             <div class="mb-4">
                 <label for="password" class="block text-black">Password:</label>
-                <input type="password" id="password" name="password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password"  onchange="passCheck()"  class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
             </div>
             <div class="mb-4">
                 <label for="verify-password" class="block text-black">Verify Password:</label>
-                <input type="password" id="verify-password" name="verify-password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
+                <input type="password" id="verify-password"  onchange="passCheck()"  class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
             </div>
             <div class="mb-4">
                 <label for="firstname" class="block text-black">First Name:</label>
@@ -55,14 +54,26 @@
                 <label for="username" class="block text-black">Username:</label>
                 <input type="text" id="name" name="username" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
             </div>
-            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" >Sign Up</button>
+            <button id="submit" type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" >Sign Up</button>
         </form>        
         <script>
+            $submit = document.getElementById("submit");
+            $submit.disabled = true;
+
+            function passCheck(){
+                $password = document.getElementById("password"); 
+                $checkPass = document.getElementById("verify-password");
+
+                if ($password.value == $checkPass.value){
+                    return submit.disabled = false;
+                }
+            }
             const form = document.querySelector('form');
-             
+            
             form.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevents HTML submission 
 
+                if (!$submit.disabled){
                 const fd = new FormData(form);
                 // redirects back to login.html
                 location.href = "login.html";
@@ -78,8 +89,7 @@
 
                     }
                 })
-
-            });
+            }});
         </script>
     </main>
     <footer>

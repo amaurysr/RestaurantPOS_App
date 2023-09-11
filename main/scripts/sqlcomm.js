@@ -1,32 +1,17 @@
-const mysql2 = require('mysql2'); 
-const express = require('express'); 
-const app = express(); 
-const bodyParser = require('body-parser');
-const { createConnection } = require('mysql2/promise');
+const mysql = require('mysql2')
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'user',
+  password: 'Fish,street321',
+  database: 'RestaurantPOSDB'
+})
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json);
-const connection = createConnection({
-    host: 'localhost',
-    user: 'user',
-    password: '04D@ckdocko123',
-    database: 'RestaurantPOSDB',
-});
+connection.connect()
 
-connection.connect((err) => {
-    if (err) {
-      console.error('Database connection error: ', err);
-      return;
-    }
-  });
+connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
+  if (err) throw err
 
-app.post('/main/scripts/sqlcomm.js', (req/res), {
-    const :{email, password, firstname, lastname, username} = req.body 
-    
-
-});
-
-connection.query()
+  console.log('The solution is: ', rows[0].solution)
+})
 
 connection.end()
-  
