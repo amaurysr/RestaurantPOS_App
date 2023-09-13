@@ -57,24 +57,32 @@ app.post('/upload', (req, res) =>{
 app.post('/findacc', (req,res) => {
     //console.log(req.body);
     const reqBody = req.body; 
+    //creates a variable for our email
     const name = reqBody.email; 
+    //creates a variable for password field
     const password = reqBody.password; 
 
+    //Select query selects if a row has a specified email and password entered
     const query1 = `SELECT email, password FROM client_info.client_verify WHERE email = "${name}" AND password = "${password}"`
 
+    //we are using the connection.query() not just for the query, but to send a http code if the row is found
     connection.query(query1, (err, results) => {
         if(err){
+            //returns if there is a error with the query
             console.error('error connecting: ' + err.stack);
             return; 
         }
+        // This counts the number of rows if found
         let numRows = results.length;
         //console.log(`The number of rows are: ${numRows}`);
         if(numRows < 1)
         {
-            return res.sendStatus(400);
+            // Specifies if no rows are found send http status code 404
+            return res.sendStatus(404);
         }
         else if(numRows > 0)
         {
+            // Specifies if a row is found send http status code 200
             return res.sendStatus(200);
         }
     })
