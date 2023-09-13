@@ -71,11 +71,11 @@ app.post('/findacc', (req,res) => {
         //console.log(`The number of rows are: ${numRows}`);
         if(numRows < 1)
         {
-            res.sendStatus(400);
+            return res.sendStatus(400);
         }
         else if(numRows > 0)
         {
-            res.sendStatus(200);
+            return res.sendStatus(200);
         }
     })
 })

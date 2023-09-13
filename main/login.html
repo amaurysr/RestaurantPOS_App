@@ -43,27 +43,35 @@
             <a href="#" class="hover:text-red-700 text-blue-600 underline">Forgot your Password</a>
         </form>
         <script>
-            const form = document.querySelector('form');
+           const form = document.querySelector('form');
 
-            form.addEventListener('submit', (e) =>
-            {
-                e.preventDefault();
+            form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                const fd = new FormData(form);
+            const fd = new FormData(form);
 
-                const urlEncoded = new URLSearchParams(fd).toString();
+            const urlEncoded = new URLSearchParams(fd).toString();
 
-                fetch('http://localhost:5500/findacc', {
-                    method: "POST",
-                    body: urlEncoded,
-                    headers: {
-                        //'application/x-www-form-urlencoded' or 'multipart/form-data'
-                        'Content-type': 'application/x-www-form-urlencoded',
-                    }
-                })
+            try {
+                const response = await fetch('http://localhost:5500/findacc', {
+                method: "POST",
+                body: urlEncoded,
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded',
+                 }
+                });
 
-            })
-            
+            console.log(response.status);
+
+            if (response.status === 200) {
+                location.href = "index.html";
+            } else if (response.status === 400) {
+                location.href = "login.html";
+            }
+            } catch (err) {
+                console.error(err);
+                }
+            });
         </script>        
     </main>
     <footer>
