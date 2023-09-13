@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./main/*.{html,css,js}","./main/scripts/*.js"],
+  content: ["./project-root/*.{html,css,js}","./project-root/assets/scripts/*.js",
+            "./project-root/logins/*.{html,css.js}"],
   theme: {
     extend: {
       fontFamily: {
@@ -9,9 +10,9 @@ module.exports = {
         'playfair-display-sc': ['Playfair Display SC', 'serif'],
       },
       backgroundImage: {
-        'fancy-restaurant': "url('/main/images/fancy.avif')",
-        'fancy-pattern': "url('/main/patterns/fancy-cushion.webp')",
-        'confetti': "url('/main/patterns/confetti.png')"
+        'fancy-restaurant': "url('/project-root/assets/images/fancy.avif')",
+        'fancy-pattern': "url('/project-root/assets/patterns/fancy-cushion.webp')",
+        'confetti': "url('/project-root/assets/patterns/confetti.png')"
       },
       screens: {
         'xs': '320px',

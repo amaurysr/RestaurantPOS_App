@@ -1,4 +1,4 @@
-# PointOfServices_App
+# RestaurantPOS_App
 
-* Point of Services/Sales App that is currently in the works
+* Restaurant POS app in development with the goal to make a seamless experience for a customer visit
  

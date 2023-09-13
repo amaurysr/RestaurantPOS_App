@@ -876,15 +876,15 @@ video {
 }
 
 .bg-confetti{
-  background-image: url('/main/patterns/confetti.png');
+  background-image: url('/project-root/assets/patterns/confetti.png');
 }
 
 .bg-fancy-pattern{
-  background-image: url('/main/patterns/fancy-cushion.webp');
+  background-image: url('/project-root/assets/patterns/fancy-cushion.webp');
 }
 
 .bg-fancy-restaurant{
-  background-image: url('/main/images/fancy.avif');
+  background-image: url('/project-root/assets/images/fancy.avif');
 }
 
 .bg-gradient-to-r{
