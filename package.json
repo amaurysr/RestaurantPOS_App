@@ -4,7 +4,7 @@
   "description": "* Restaurant POS app currently in the works",
   "main": "index.js",
   "scripts": {
-    "start": "node ./project-root/scripts/receive.js",
+    "start": "node ./project-root/assets/scripts/receive.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tailwindcss -i ./src/input.css -o ./project-root/style.css --watch"
   },
