@@ -28,7 +28,7 @@
         </nav>
     </header>
     <main class="flex flex-col justify-center items-center min-h-screen sm:py-20 md:py-24 lg:py-28 xl:py-32">
-        <form method="GET" action="/findacc" class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
+        <form class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
             <h1 class="text-2xl text-center font-mono">Sign In</h1>
             <div class="mb-4">
                 <label for="email" class="block text-black">Email:</label>
@@ -41,7 +41,30 @@
             <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 mb-2">Login</button>
             <a href="signup.html" class="hover:text-red-700 text-blue-600 underline">Create an Account</a><br>
             <a href="#" class="hover:text-red-700 text-blue-600 underline">Forgot your Password</a>
-        </form>        
+        </form>
+        <script>
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', (e) =>
+            {
+                e.preventDefault();
+
+                const fd = new FormData(form);
+
+                const urlEncoded = new URLSearchParams(fd).toString();
+
+                fetch('http://localhost:5500/findacc', {
+                    method: "POST",
+                    body: urlEncoded,
+                    headers: {
+                        //'application/x-www-form-urlencoded' or 'multipart/form-data'
+                        'Content-type': 'application/x-www-form-urlencoded',
+                    }
+                })
+
+            })
+            
+        </script>        
     </main>
     <footer>
         <div>

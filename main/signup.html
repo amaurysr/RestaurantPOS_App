@@ -40,6 +40,7 @@
             </div>
             <div class="mb-4">
                 <label for="verify-password" class="block text-black">Verify Password:</label>
+                <!--name is removed for verify-password because it's used solely for verification-->
                 <input type="password" id="verify-password"  onchange="passCheck()"  class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
             </div>
             <div class="mb-4">
@@ -57,29 +58,40 @@
             <button id="submit" type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600" >Sign Up</button>
         </form>        
         <script>
+            // create a variable for our submit button using the id=""
             $submit = document.getElementById("submit");
+            // We are disabling the submit button because we want our two passwords to verify each other
             $submit.disabled = true;
 
+            // function that checks the two password boxes and then enables our submit button 
             function passCheck(){
+                // checks the password box
                 $password = document.getElementById("password"); 
+                // checks the verify-password box
                 $checkPass = document.getElementById("verify-password");
 
                 if ($password.value == $checkPass.value){
                     return submit.disabled = false;
                 }
             }
+            // this variable selects the entire form and then starts the query to be sent to the backend
             const form = document.querySelector('form');
             
+            // listens when the submit button is clicked
             form.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevents HTML submission 
 
+                // the if-statement checks if the submit button is enabled
                 if (!$submit.disabled){
+                // variable takes form data from the FormData function
                 const fd = new FormData(form);
                 // redirects back to login.html
                 location.href = "login.html";
-
+                
+                // Takes our form data and creates a key-value pair and converts it into a query string for URL
                 const urlEncoded = new URLSearchParams(fd).toString();
-
+                
+                // This fetch will communicate with our backend, and will post the urlEncoded variable to our backend
                 fetch('http://localhost:5500/upload', {
                     method: "POST",
                     body: urlEncoded,
