@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const mysql = require('mysql2')
+const mysql = require('mysql2');
 
 // start our mysql connection to database
 const connection = mysql.createConnection({
@@ -12,10 +12,13 @@ const connection = mysql.createConnection({
     database: 'client_info'
   })
 
+// Makes the page viewable just on localhost:5500 
+//app.use(express.static(__dirname + 'project-root')); 
 
+// sets up middleware for requests from any IP
 app.use(cors()); // Allow request from any IP 
 
-// Makes our text format extended to true, with parameter limits so that long strings won't mess up our database entry
+// Makes text format extended to true, with parameter limits so that long strings won't mess up our database entry, this is middleware for post requests
 app.use(express.urlencoded({
     extended: true,
     limit: 10000,
@@ -56,6 +59,7 @@ app.post('/upload', (req, res) =>{
 
 app.post('/findacc', (req,res) => {
     //console.log(req.body);
+    // creates a variable for our request 
     const reqBody = req.body; 
     //creates a variable for our email
     const name = reqBody.email; 

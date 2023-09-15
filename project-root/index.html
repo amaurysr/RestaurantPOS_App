@@ -6,9 +6,12 @@
     <title>Restaurant POS</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        #pattern1{
-            background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1));
-            opacity: 0.8;
+        #icons-background
+        {
+            background-color: #ffffff;
+            opacity: 1;
+            background-image: radial-gradient(circle at center center, #fafafa, #ffffff), repeating-radial-gradient(circle at center center, #fafafa, #fafafa, 40px, transparent 80px, transparent 40px);
+            background-blend-mode: multiply;;
         }
     </style>
 </head>
@@ -16,13 +19,15 @@
     <header>
         <nav>
             <div class="text-center">
-                <h1 id="pattern1" class="font-playfair-display-sc text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth border-inherit">De Luxe Restaurant</h1>
+                <h1 class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-montserrat font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth border-inherit">De Luxe Restaurant</h1>
             </div>
         </nav>
     </header>
-    <main class="flex flex-col justify-center items-center min-h-screen sm:py-20 md:py-24 lg:py-28 xl:py-32">
-            <button id ="clientButton" type = "submit" class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl hover:opacity-25">Client</button>
-            <button id ="adminButton" type = "submit" class="text-white rounded-full bg-fancy-pattern xxs:py-5 xxs:px-10 xs:py-10 xs:px-20 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl hover:opacity-25">Admin</button>
+    <main class="flex flex-col justify-center items-center min-h-screen">
+            <div id ="icons-background" class=" flex flex-col justify-center items-center xxs:p-10 xs:p-14 sm:p-26 md:p-32 lg:p-36 xl:p-48">
+            <button id ="clientButton" type = "submit" class="text-white rounded-full bg-blue-600 xxs:py-5 xxs:px-5 xs:py-5 xs:px-5 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-20 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl hover:bg-blue-950 hover:text-gray-500">Client</button>
+            <button id ="adminButton" type = "submit" class="text-white rounded-full bg-blue-600 xxs:py-5 xxs:px-5 xs:py-5 xs:px-5 sm:py-20 sm:px-30 md:py-30 md:px-40 mb-10 border-inherit xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-4xl hover:bg-blue-950 hover:text-gray-500">Admin</button>
+            </div>
     </main>
     <script>
         const clientButton = document.getElementById('clientButton');
@@ -38,7 +43,7 @@
     </script>    
     <footer>
         <div>
-            <p id="pattern1" class="bg-fancy-pattern text-white text-center py-4 border-inherit">&copy; 2023 My Website</p>
+            <p class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-montserrat text-white text-center py-4 border-inherit">&copy; 2023 My Website</p>
         </div>
     </footer>
 </body>

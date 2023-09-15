@@ -1,31 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant POS</title>
-    <link rel="stylesheet" href="../../project-root/style.css">
-    <style>
-        #pattern1{
-            background: linear-gradient(90deg, rgba(9, 0, 2, 1), rgba(0, 0, 0, 1), rgba(131, 110, 91, 1));
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body class="bg-fancy-restaurant">
-    <header>
-        <nav>
-            <div class="text-center">
-                <h1 id="pattern1" class=" bg-fancy-pattern font-playfair-display-sc text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restaurant POS</title>
+        <link rel="stylesheet" href="../../project-root/style.css">
+    </head>
+    <body class="bg-fancy-restaurant bg-no-repeat bg-cover">
+        <header>
+            <nav>
+                <div class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 text-opacity-100 text-center">
+                    <h1 class="font-montserrat font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
+                </div>
+            </nav>
+        </header>
+        <main class="">
+            <div class="bg-black/60">
+                <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner">
+                  <div class="grid grid-cols-3 pb-10">
+                    <div class="dropdown dropdown-hover">
+                      <label tabindex="0" class="btn m-1 font-montserrat">Sort</label>
+                      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a>Alphabetical Order</a></li>
+                        <li><a>Price</a></li>
+                      </ul>
+                    </div>
+                    <div class="dropdown dropdown-hover">
+                      <label tabindex="0" class="btn m-1 font-montserrat">Filter</label>
+                      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a>All</a></li>
+                        <li><a>Entrees</a></li>
+                        <li><a>Mains</a></li>
+                        <li><a>Drinks</a></li>
+                        <li><a>Desserts</a></li>
+                      </ul>
+                    </div>
+                    <a class="mr-0 mx-auto font-montserrat font-semibold">Icon-cart</a>
+                  </div>
+              
+                  <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    <a href="#" class="group" id="entree">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Earthen Bottle</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$48</p>
+                    </a>
+                    <a href="#" class="group" id="entree">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/short-rib.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Nomad Tumbler</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                    </a>
+                    <a href="#" class="group" id="entree">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/lamb-burger.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Focus Paper Refill</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$89</p>
+                    </a>
+                    <a href="#" class="group" id="entree">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/fries.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Machined Mechanical Pencil</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                    </a>
+                    <a href="#" class="group" id="main">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/steak.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Earthen Bottle</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$48</p>
+                    </a>
+                    <a href="#" class="group" id="main">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/salmon.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Nomad Tumbler</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                    </a>
+                    <a href="#" class="group" id="main">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/scallops.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Focus Paper Refill</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$89</p>
+                    </a>
+                    <a href="#" class="group" id="main">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                        <img src="../assets/images/spagetti.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Machined Mechanical Pencil</h3>
+                      <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                    </a>
+                    <a href="#" class="group" id = "drink">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/redwine.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Earthen Bottle</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$48</p>
+                      </a>
+                      <a href="#" class="group" id = "drink">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/liquor.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Nomad Tumbler</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                      </a>
+                      <a href="#" class="group" id = "drink">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/pepsi.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Focus Paper Refill</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$89</p>
+                      </a>
+                      <a href="#" class="group" id = "drink">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/coffee.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Machined Mechanical Pencil</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                      </a>
+                      <a href="#" class="group" id="dessert">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/cheesecake.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Earthen Bottle</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$48</p>
+                      </a>
+                      <a href="#" class="group" id="dessert">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/chocolate-lava-cake.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Nomad Tumbler</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                      </a>
+                      <a href="#" class="group" id="dessert">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/chocolate-spongecake.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Focus Paper Refill</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$89</p>
+                      </a>
+                      <a href="#" class="group" id="dessert">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                          <img src="../assets/images/sundae.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Machined Mechanical Pencil</h3>
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                      </a>
+                   <!-- More products... -->
+                  </div>
+                </div>
+              </div>
+        </main>
+        <footer>
+            <div>
+                <p class= "font-montserrat bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 text-opacity-100 text-white text-center py-4">&copy; 2023 My Website</p>
             </div>
-        </nav>
-    </header>
-    <main>
-    
-    </main>
-    <footer>
-        <div>
-            <p id="pattern1" class="text-white text-center py-4">&copy; 2023 My Website</p>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
+</html>
