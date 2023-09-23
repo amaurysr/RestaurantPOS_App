@@ -1,8 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./project-root/*.{html,css,js}","./project-root/assets/scripts/*.js",
-            "./project-root/logins/*.{html,css.js}", "./project-root/client-main/*.{html,css.js}",
-          "./project-root/admin-main/*.{html,css,js}","./scripts/*.js"],
+  content: ["./project-root/front-html/*.{html,css,js}","./project-root/assets/scripts/*.js",
+            "./project-root/front-html/logins/*.{html,css.js}", "./project-root/front-html/client-main/*.{html,css.js}",
+          "./project-root/front-html/admin-main/*.{html,css,js}","./scripts/*.js"],
+  daisyui: {
+            themes: [
+              {
+                mytheme: {
+                          "primary": "#570df8",                    
+                          "secondary": "#f000b8",                
+                          "accent": "#1dcdbc",              
+                          "neutral": "#2b3440",                   
+                          "base-100": "#ffffff",                  
+                          "info": "#3abff8",                    
+                          "success": "#36d399",                 
+                          "warning": "#fbbd23",                  
+                          "error": "#f87272",
+                        },
+                    },
+                  ],
+                },
   theme: {
     extend: {
       fontFamily: {

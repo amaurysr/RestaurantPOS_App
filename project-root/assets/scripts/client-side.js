@@ -24,6 +24,7 @@ export default function clientSide(){
     app.use(cors()); // Allow request from any IP 
 
     // Makes text format extended to true, with parameter limits so that long strings won't mess up our database entry, this is middleware for post requests
+    // parses form data
     app.use(express.urlencoded({
         extended: true,
         limit: 10000,
@@ -49,7 +50,7 @@ export default function clientSide(){
             // checks for error in our query or a error when setting up our connection to database
             if(err){    
                 console.error('error connecting: ' + err.stack);
-                return;
+                return res.sendStatus(404);
             }
             // Verifies if a email or username is found 
             if(results.length > 0){
@@ -103,49 +104,27 @@ export default function clientSide(){
         const changepassquery = 'UPDATE client_info.client_credentials SET password = ? WHERE email = ?';
         const changepassquery1 = 'UPDATE client_info.client_verify SET password = ? WHERE email = ?';
 
-        // We need beginTransaction because this will be able to run our multiple queries
-        connection.beginTransaction((err) => {
-            if (err) {
-                console.error('Error beginning transaction', err.stack);
-                return res.sendStatus(404); // Use a more appropriate status code for server errors
-            }
-            // Queries our main table with all data
-            connection.query(changepassquery, [password, email], (err, results) => {
-                if (err) {
-                    // this will rollack an error if anything happens 
-                    connection.rollback(() => {
-                        console.error('Error rolling back transaction', err.stack);
-                        return res.sendStatus(404); // Rollback on error
-                    });
-                } else {
-                    // Queries the secondary table with email & password
-                    connection.query(changepassquery1, [password, email], (err, results) => {
-                        if (err) {
-                            // this will rollack an error if anything happens
-                            connection.rollback(() => {
-                                console.error('Error rolling back transaction', err.stack);
-                                return res.sendStatus(404); // Rollback on error
-                            });
-                        } else {
-                            // This commits the queries that we requested
-                            connection.commit((err) => {
-                                if (err) {
-                                    // this will rollack an error if anything happens
-                                    connection.rollback(() => {
-                                        console.error('Error committing transaction', err.stack);
-                                        return res.sendStatus(404); // Rollback on error
-                                    });
-                                } else {
-                                    console.log('Sent changes to your account');
-                                    return res.sendStatus(200); // Send OK for our request 
-                                }
-                            });
-                        }
-                    });
+        // replaces all of those if statements, so now it will try the connection.query, and then return http code 200 if everything runs smooth
+        try {
+            // starts our transaction of two queries, as this is necessary for more than one query
+            connection.beginTransaction((err) =>
+                {
+                    connection.query(changepassquery, [password, email], (err)),
+                    connection.query(changepassquery1, [password, email], (err)),
+                    // this commits our queries to the database
+                    connection.commit(err);
+                    return res.sendStatus(200);
                 }
+            )
+        // catches the try error if anything goes wrong
+        } catch (err) {
+            connection.rollback(() => 
+            {
+                console.error('Error rolling back transaction', err.stack);
+                return res.sendStatus(404); // Rollback on error
             });
-        });
-    });
+        }});
+       
 
 
     app.post('/findacc', (req,res) => {

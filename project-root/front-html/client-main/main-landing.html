@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restaurant POS</title>
+        <link rel="stylesheet" href="../../front-html/style.css">
+    </head>
+    <body class="bg-[url('../assets/images/fancy.avif')] bg-cover bg-no-repeat">
+        <header>
+            <nav>
+                <div class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 text-opacity-100 text-center">
+                    <h1 class="font-montserrat font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
+                </div>
+            </nav>
+        </header>
+        <main class="relative">
+            <div class="bg-black/60">
+                <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner">
+                  <div class="grid grid-cols-3 pb-10">
+                    <div class="dropdown dropdown-hover flex justify-start">
+                      <label tabindex="0" class="btn font-montserrat">Sort</label>
+                      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a class="sort" data-sorter="Alphabetical-order" id="sorter">Alphabetical Order</a></li>
+                        <li><a class="sort" data-sorter="Price (low-to-high)" id="sorter">Price (low-to-high)</a></li>
+                        <li><a class="sort" data-sorter="Price (high-to-low)" id="sorter">Price (high-to-low)</a></li>
+                      </ul>
+                    </div>
+                    <div class="dropdown dropdown-hover flex justify-start"> 
+                      <label tabindex="0" class="btn font-montserrat">Filter</label>
+                      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                          <!-- Add data-category attribute to each item, as that becomes .dataset.category in JS-->
+                          <li class="category-button" data-category="all"><a>All</a></li>
+                          <li class="category-button" data-category="entree"><a>Entrees</a></li>
+                          <li class="category-button" data-category="main"><a>Mains</a></li>
+                          <li class="category-button" data-category="drink"><a>Drinks</a></li>
+                          <li class="category-button" data-category="dessert"><a>Desserts</a></li>
+                      </ul>
+                  </div>
+                      <div class="flex justify-center drawer drawer-end">
+                        <input id="my-drawer" type="checkbox" class="drawer-toggle"/>
+                        <div class="drawer-content">
+                          <label for="my-drawer" class="btn1 drawer-button">
+                            <svg class="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="50" height="50">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            </svg>
+                          </label>
+                        </div>
+                        <div class="drawer-side z-[1]">
+                          <label for="my-drawer" class="drawer-overlay overflow-y-scroll max-h-max"></label>
+                          <ul class="menu p-4 w-80 min-h-full bg-white text-base-content overflow-y-auto max-h-max">
+                            <!-- Sidebar content here -->
+                            <div class="object-fit">
+                              <h1 class="font-montserrat font-semibold text-3xl text-black mb-10">My Cart</h1>
+                              <div class="mb-10">
+                                <p class="font-montserrat">Coffee</p>
+                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
+                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
+                                </div>
+                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
+                              </div>
+                              <div class="mb-10">
+                                <p class="font-montserrat">Coffee</p>
+                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
+                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
+                                </div>
+                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
+                              </div>
+                              <div class="mb-10">
+                                <p class="font-montserrat">Coffee</p>
+                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
+                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
+                                </div>
+                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
+                              </div>
+                              <div class="mb-10">
+                                <p class="font-montserrat">Coffee</p>
+                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
+                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
+                                </div>
+                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
+                              </div>
+                              <h1 class="font-montserrat text-lg mb-6">Total: $</h1>
+                              <button type="submit" class="bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat">Check Out</button>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>                                
+                  </div>
+              
+                  <div id="menu" class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    <a href="#" class="entree" data-name="shrimpandsquid" data-price="30">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shrimp And Squid</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$30</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="entree" id="entree" data-name="shortrib" data-price="35">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/short-rib.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Short Rib</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="entree" id="entree" data-name="baconburger" data-price="15">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/lamb-burger.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Bacon Burger</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="entree" id="entree" data-name="frenchfries" data-price="10">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/fries.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">French Fries</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$10</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="main" id="main" data-name="steakwithvegetables" data-price="35">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/steak.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Steak with Vegetables</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="main" id="main" data-name="salmonvegetables" data-price="35">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/salmon.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Salmon with Vegetables</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="main" id="main" data-name="scallops" data-price="35">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/scallops.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Scallops</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="main" id="main" data-name="spagetti" data-price="15">
+                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                        <img src="../../assets/images/spagetti.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Spagetti</h3>
+                      <div class="grid grid-cols-2">
+                        <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
+                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                      </div>
+                    </a>
+                    <a href="#" class="drink" id = "drink" data-name="wine" data-price="10">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/redwine.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Wine</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$10</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="drink" id = "drink" data-name="shotofwhiskey" data-price="20">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/liquor.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shot of Whiskey</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="drink" id = "drink" data-name="pepsicola" data-price="3">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/pepsi.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Pepsi-cola</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$3</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="drink" id = "drink" data-name="coffee" data-price="5">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/coffee.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Coffee</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$5</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="dessert" id="dessert" data-name="cheesecake" data-price="20">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/cheesecake.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Cheesecake</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="dessert" id="dessert" data-name="chocolatelavacake" data-price="20">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/chocolate-lava-cake.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Lava Cake</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="dessert" id="dessert" data-name="chocolatespongecake" data-price="20">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/chocolate-spongecake.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Spongecake</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                      <a href="#" class="dessert" id="dessert" data-name="chocolatesundae" data-price="15">
+                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
+                          <img src="../../assets/images/sundae.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Sundae</h3>
+                        <div class="grid grid-cols-2">
+                          <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
+                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        </div>
+                      </a>
+                   <!-- More products... -->
+                  </div>
+                </div>
+              </div>
+        </main>
+        <script>
+          // collects html elements that have the class .category-button, so this is a list 
+          const categoryButtons = document.querySelectorAll('.category-button');
+            // iterates over each button in categoryButtons 
+            categoryButtons.forEach(button => {
+              // each button has a listener over it, so when it is clicked the function in it executes 
+              button.addEventListener('click', () => {
+                  // detects our menu category, and takes each dataset category from the data-* html attribute 
+                  const category = button.dataset.category
+                  // checks if all categories are selected - which is default menu
+                  if (category === 'all')
+                  {
+                    // selects all of our categories to not be hidden 
+                    const allItems = document.querySelectorAll('.main, .entree, .drink, .dessert')
+                    allItems.forEach(item => {
+                      item.removeAttribute('hidden');
+                    })
+                  }
+                  else {
+                    // removes hidden for the individual category 
+                    const items = document.querySelectorAll(`.${category}`);
+                    // loops and removes the hidden attribute from our items
+                    items.forEach(item => {
+                        item.removeAttribute('hidden');
+                    });
+                    // this filters from the buttons that are not clicked, as the buttons are placed into a array,
+                    // and the button we clicked is filtered out in that last function
+                    const otherCategories = Array.from(categoryButtons).filter(b => b !== button);
+                    // iterates over our buttons that aren't chosen 
+                    otherCategories.forEach(otherButton => {
+                        // takes each dataset othercategory from the data-* html attribute 
+                        const otherCategory = otherButton.dataset.category
+                        // selects all the items related to those othercategories, and then makes them hidden 
+                        const otherItems = document.querySelectorAll(`.${otherCategory}`);
+                        otherItems.forEach(item => {
+                            item.setAttribute('hidden', true);
+                        });
+                  })};
+              });
+          });
+
+        const sortingButtons = document.querySelectorAll('.sort');
+
+        sortingButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sortname = button.dataset.sorter;
+
+                if (sortname === 'Alphabetical-order') {
+                    // Get all food items and convert them to an array
+                    const foodItems = Array.from(document.querySelectorAll('#menu > a'));
+
+                    // Sort the food items alphabetically based on their data-name attribute
+                    foodItems.sort((a, b) => {
+                        const nameA = a.dataset.name.toLowerCase();
+                        const nameB = b.dataset.name.toLowerCase();
+
+                        if (nameA < nameB) {
+                            return -1;
+                        } else if (nameA > nameB) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+
+                    // Clear the menu
+                    const menu = document.getElementById("menu");
+                    menu.innerHTML = '';
+
+                    // Append the sorted food items back to the menu
+                    foodItems.forEach(item => {
+                        menu.appendChild(item);
+                    });
+                } else if (sortname === 'Price (low-to-high)') {
+                    
+                    const prices = Array.from(document.querySelectorAll('#menu > a'));
+
+                    prices.sort((a,b) => {
+                      const price1 = Number(a.dataset.price);
+                      const price2 = Number(b.dataset.price); 
+
+                      if (price1 < price2){
+                        return -1;
+                      } 
+                      else if(price1 > price2){
+                        return 1;
+                      }
+                      return 0;
+                    })
+
+                    const menu = document.getElementById("menu");
+                    menu.innerHTML = ""; 
+
+                    prices.forEach(item => {
+                    menu.appendChild(item);
+                  })
+                } else if (sortname === 'Price (high-to-low)'){
+
+                  const prices = Array.from(document.querySelectorAll('#menu > a'));
+
+                  prices.sort((a,b) => {
+                    const price1 = Number(a.dataset.price);
+                    const price2 = Number(b.dataset.price); 
+
+                    if (price1 > price2){
+                      return -1;
+                    } 
+                    else if(price1 < price2){
+                      return 1;
+                    }
+                    return 0; })
+
+                    const menu = document.getElementById("menu");
+                    menu.innerHTML = ""; 
+
+                    prices.forEach(item => {
+                    menu.appendChild(item);})
+
+                }
+            });
+        });
+
+        </script>
+        <footer>
+            <div>
+                <p class= "font-montserrat bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 text-opacity-100 text-white text-center py-4">&copy; 2023 My Website</p>
+            </div>
+        </footer>
+    </body>
+</html>
