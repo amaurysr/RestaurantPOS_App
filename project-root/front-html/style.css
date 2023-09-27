@@ -1682,6 +1682,23 @@ html{
   --tw-border-opacity: 0.2;
 }
 
+.range{
+  height: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  --range-shdw: var(--bc);
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.range:focus{
+  outline: none;
+}
+
 .select{
   display: inline-flex;
   cursor: pointer;
@@ -2923,6 +2940,65 @@ details.collapse summary::-webkit-details-marker{
   }
 }
 
+.range:focus-visible::-webkit-slider-thumb{
+  --focus-shadow: 0 0 0 6px hsl(var(--b1)) inset, 0 0 0 2rem hsl(var(--range-shdw)) inset;
+}
+
+.range:focus-visible::-moz-range-thumb{
+  --focus-shadow: 0 0 0 6px hsl(var(--b1)) inset, 0 0 0 2rem hsl(var(--range-shdw)) inset;
+}
+
+.range::-webkit-slider-runnable-track{
+  height: 0.5rem;
+  width: 100%;
+  background-color: hsl(var(--bc) / 0.1);
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.range::-moz-range-track{
+  height: 0.5rem;
+  width: 100%;
+  background-color: hsl(var(--bc) / 0.1);
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.range::-webkit-slider-thumb{
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  border-radius: var(--rounded-box, 1rem);
+  appearance: none;
+  -webkit-appearance: none;
+  top: 50%;
+  color: hsl(var(--range-shdw));
+  transform: translateY(-50%);
+  --filler-size: 100rem;
+  --filler-offset: 0.6rem;
+  box-shadow: 0 0 0 3px hsl(var(--range-shdw)) inset,
+      var(--focus-shadow, 0 0),
+      calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+}
+
+.range::-moz-range-thumb{
+  position: relative;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  border-radius: var(--rounded-box, 1rem);
+  top: 50%;
+  color: hsl(var(--range-shdw));
+  --filler-size: 100rem;
+  --filler-offset: 0.5rem;
+  box-shadow: 0 0 0 3px hsl(var(--range-shdw)) inset,
+      var(--focus-shadow, 0 0),
+      calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+}
+
 @keyframes rating-pop{
   0%{
     transform: translateY(-0.125em);
@@ -3687,6 +3763,10 @@ details.collapse summary::-webkit-details-marker{
   border-width: 0;
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
 .visible{
   visibility: visible;
 }
@@ -3713,6 +3793,15 @@ details.collapse summary::-webkit-details-marker{
 
 .sticky{
   position: sticky;
+}
+
+.inset-y-0{
+  top: 0px;
+  bottom: 0px;
+}
+
+.right-0{
+  right: 0px;
 }
 
 .isolate{
@@ -3846,6 +3935,10 @@ details.collapse summary::-webkit-details-marker{
   display: none;
 }
 
+.h-4{
+  height: 1rem;
+}
+
 .h-56{
   height: 14rem;
 }
@@ -3878,6 +3971,10 @@ details.collapse summary::-webkit-details-marker{
 
 .min-h-screen{
   min-height: 100vh;
+}
+
+.w-4{
+  width: 1rem;
 }
 
 .w-52{
@@ -3934,6 +4031,12 @@ details.collapse summary::-webkit-details-marker{
 
 .resize{
   resize: both;
+}
+
+.appearance-none{
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-cols-1{
@@ -4088,6 +4191,11 @@ details.collapse summary::-webkit-details-marker{
 
 .border-t-4{
   border-top-width: 4px;
+}
+
+.border-gray-300{
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .border-inherit{
@@ -4284,6 +4392,10 @@ details.collapse summary::-webkit-details-marker{
 
 .bg-no-repeat{
   background-repeat: no-repeat;
+}
+
+.fill-current{
+  fill: currentColor;
 }
 
 .object-contain{
@@ -4557,6 +4669,10 @@ details.collapse summary::-webkit-details-marker{
   padding-right: 1rem;
 }
 
+.pr-8{
+  padding-right: 2rem;
+}
+
 .pt-0{
   padding-top: 0px;
 }
@@ -4696,6 +4812,10 @@ details.collapse summary::-webkit-details-marker{
 
 .uppercase{
   text-transform: uppercase;
+}
+
+.leading-tight{
+  line-height: 1.25;
 }
 
 .text-amber-700{
@@ -4910,6 +5030,11 @@ details.collapse summary::-webkit-details-marker{
   }
 }
 
+.hover\:border-gray-500:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
 .hover\:bg-blue-600:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
@@ -4918,6 +5043,11 @@ details.collapse summary::-webkit-details-marker{
 .hover\:bg-blue-950:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(23 37 84 / var(--tw-bg-opacity));
+}
+
+.hover\:text-black:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .hover\:text-gray-500:hover{
@@ -4930,9 +5060,24 @@ details.collapse summary::-webkit-details-marker{
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
+.focus\:border-blue-500:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
+.focus\:outline-none:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .active\:text-orange-500:active{
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
+.active\:text-violet-700:active{
+  --tw-text-opacity: 1;
+  color: rgb(109 40 217 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:opacity-75{

@@ -23,6 +23,9 @@ export default function webviewer() {
   app.get('/login', (req, res) => {
     res.sendFile(`${publicpath}/logins/login.html`)
   })
+  app.get('/adminlogin', (req, res) => {
+    res.sendFile(`${publicpath}/admin-main/admin-login.html`)
+  })
 
   app.get('*', (req, res) => {
     res.sendFile(`${publicpath}/index.html`)

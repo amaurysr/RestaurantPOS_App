@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant POS</title>
+    <link rel="stylesheet" href="../../front-html/style.css">
+    <style>
+        form
+        {
+            background-color: #ffffff;
+            opacity: 1;
+            background-image: radial-gradient(circle at center center, #fafafa, #ffffff), repeating-radial-gradient(circle at center center, #fafafa, #fafafa, 40px, transparent 80px, transparent 40px);
+            background-blend-mode: multiply;;
+        }
+    </style>
+</head>
+<body class="bg-[url('../assets/images/fancy.avif')] bg-cover bg-no-repeat">
+    <header>
+        <nav>
+            <div class="text-center">
+                <h1 class="font-montserrat bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
+            </div>
+        </nav>
+    </header>
+    <main class="flex flex-col justify-center items-center min-h-screen sm:py-20 md:py-24 lg:py-28 xl:py-32">
+        <form id="form" class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
+            <h1 class="text-2xl text-center font-montserrat font-semibold">Admin Sign In</h1>
+            <div class="mb-4">
+                <label for="username" class="block text-black font-montserrat font-medium">Username:</label>
+                <input type="username" id="username" name="username" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-black font-montserrat font-medium">Password:</label>
+                <input type="password" id="password" name="password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 mb-2 font-montserrat shadow-black shadow-lg">Login</button>
+            <a href="signup.html" class="hover:text-red-700 text-blue-600 active:text-orange-500 font-montserrat">Create an Account</a><br>
+            <a href="forgotpassword1.html" class="hover:text-red-700 text-blue-600 active:text-orange-500 font-montserrat">Forgot your Password</a>
+            <p id="checker" class="text-red-500 font-montserrat" hidden>Your Email or Password might be incorrect</p>
+        </form>
+        <script>
+            // selects form
+           const form = document.querySelector('form');
+
+           // listens for the submit button, but now runs a async function which will work with await fetch
+            form.addEventListener('submit', async (e) => {
+            // prevents default html from clicking submit
+            e.preventDefault();
+            
+            // Takes in the formdata in a variable
+            const fd = new FormData(form);
+            
+            // form is now in urlEncoded format
+            const urlEncoded = new URLSearchParams(fd).toString();
+
+            try {
+                // response variable is made with fetch inside so that it takes our http status from the back-end
+                // so it pretty much awaits for that response.status command 
+                const response = await fetch('http://localhost:5500/findacc', {
+                    method: "POST",
+                    body: urlEncoded,
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded',
+                    }
+                });
+
+            console.log(response.status);
+
+            if (response.status === 200) {
+                // redirects us to the next page if the http status code is met
+                location.href = "../admin-main/admin-main-landing.html";
+            } else if (response.status === 404) {
+                // we stay in the same page if this http status code is met
+                // this checks for our hidden <p> tag
+                var element = document.getElementById("checker");
+                // removes that hidden attribute in that p tag
+                element.removeAttribute("hidden");
+                // cleans our textboxs
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+            }
+            } catch (err) {
+                // catches for any errors
+                console.error(err);
+                }
+            });
+        </script>        
+    </main>
+    <footer>
+        <div>
+            <p class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-montserrat text-white text-center py-4">&copy; 2023 My Website</p>
+        </div>
+    </footer>
+</body>
+</html>

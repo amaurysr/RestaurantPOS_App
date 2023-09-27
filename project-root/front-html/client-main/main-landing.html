@@ -51,36 +51,11 @@
                           <ul class="menu p-4 w-80 min-h-full bg-white text-base-content overflow-y-auto max-h-max">
                             <!-- Sidebar content here -->
                             <div class="object-fit">
-                              <h1 class="font-montserrat font-semibold text-3xl text-black mb-10">My Cart</h1>
-                              <div class="mb-10">
-                                <p class="font-montserrat">Coffee</p>
-                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
-                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
-                                </div>
-                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
+                              <h1 class="font-montserrat font-semibold text-4xl text-black mb-10">My Cart</h1>
+                              <div id="cart-main-content">
+                              <!--main content here-->
                               </div>
-                              <div class="mb-10">
-                                <p class="font-montserrat">Coffee</p>
-                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
-                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
-                                </div>
-                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
-                              </div>
-                              <div class="mb-10">
-                                <p class="font-montserrat">Coffee</p>
-                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
-                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
-                                </div>
-                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
-                              </div>
-                              <div class="mb-10">
-                                <p class="font-montserrat">Coffee</p>
-                                <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden">
-                                  <img src="../../assets/images/coffee.avif" class="h-full w-full object-cover object-center">
-                                </div>
-                                <a class="font-montserrat text-red-600 hover:text-black active:text-violet-700" href="#">Remove</a>
-                              </div>
-                              <h1 class="font-montserrat text-lg mb-6">Total: $</h1>
+                              <h1 id="subtotal" class="font-montserrat font-semibold text-2xl mb-6">Total: $</h1>
                               <button type="submit" class="bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat">Check Out</button>
                             </div>
                           </ul>
@@ -89,164 +64,164 @@
                   </div>
               
                   <div id="menu" class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    <a href="#" class="entree" data-name="shrimpandsquid" data-price="30">
+                    <a class="entree" data-name="shrimpandsquid" data-price="30">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shrimp And Squid</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$30</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="shrimpandsquid">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="entree" id="entree" data-name="shortrib" data-price="35">
+                    <a class="entree" id="entree" data-name="shortrib" data-price="35">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/short-rib.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Short Rib</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="shortrib">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="entree" id="entree" data-name="baconburger" data-price="15">
+                    <a class="entree" id="entree" data-name="baconburger" data-price="15">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/lamb-burger.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Bacon Burger</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="baconburger">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="entree" id="entree" data-name="frenchfries" data-price="10">
+                    <a class="entree" id="entree" data-name="frenchfries" data-price="10">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/fries.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">French Fries</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$10</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="frenchfries">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="main" id="main" data-name="steakwithvegetables" data-price="35">
+                    <a class="main" id="main" data-name="steakwithvegetables" data-price="35">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/steak.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Steak with Vegetables</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="steakwithvegetables">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="main" id="main" data-name="salmonvegetables" data-price="35">
+                    <a class="main" id="main" data-name="salmonvegetables" data-price="35">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/salmon.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Salmon with Vegetables</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="salmonvegetables">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="main" id="main" data-name="scallops" data-price="35">
+                    <a class="main" id="main" data-name="scallops" data-price="35">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/scallops.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Scallops</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$35</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="scallops">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="main" id="main" data-name="spagetti" data-price="15">
+                    <a class="main" id="main" data-name="spagetti" data-price="15">
                       <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                         <img src="../../assets/images/spagetti.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Spagetti</h3>
                       <div class="grid grid-cols-2">
                         <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
-                        <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                        <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="spagetti">Add to cart</button>
                       </div>
                     </a>
-                    <a href="#" class="drink" id = "drink" data-name="wine" data-price="10">
+                    <a class="drink" id = "drink" data-name="wine" data-price="10">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/redwine.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Wine</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$10</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="wine">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="drink" id = "drink" data-name="shotofwhiskey" data-price="20">
+                      <a class="drink" id = "drink" data-name="shotofwhiskey" data-price="20">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/liquor.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shot of Whiskey</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="shotofwhiskey">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="drink" id = "drink" data-name="pepsicola" data-price="3">
+                      <a class="drink" id = "drink" data-name="pepsicola" data-price="3">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/pepsi.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Pepsi-cola</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$3</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="pepsicola">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="drink" id = "drink" data-name="coffee" data-price="5">
+                      <a class="drink" id = "drink" data-name="coffee" data-price="5">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/coffee.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Coffee</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$5</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="coffee">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="dessert" id="dessert" data-name="cheesecake" data-price="20">
+                      <a class="dessert" id="dessert" data-name="cheesecake" data-price="20">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/cheesecake.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Cheesecake</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="cheesecake">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="dessert" id="dessert" data-name="chocolatelavacake" data-price="20">
+                      <a class="dessert" id="dessert" data-name="chocolatelavacake" data-price="20">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/chocolate-lava-cake.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Lava Cake</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="chocolatelavacake">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="dessert" id="dessert" data-name="chocolatespongecake" data-price="20">
+                      <a class="dessert" id="dessert" data-name="chocolatespongecake" data-price="20">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/chocolate-spongecake.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Spongecake</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$20</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="chocolatespongecake">Add to cart</button>
                         </div>
                       </a>
-                      <a href="#" class="dessert" id="dessert" data-name="chocolatesundae" data-price="15">
+                      <a class="dessert" id="dessert" data-name="chocolatesundae" data-price="15">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
                           <img src="../../assets/images/sundae.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Sundae</h3>
                         <div class="grid grid-cols-2">
                           <p class="mt-1 text-lg font-montserrat text-gray-900">$15</p>
-                          <button type="submit" class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat">Add to cart</button>
+                          <button class="bg-blue-500 text-white rounded w-full hover:bg-blue-600 mb-2 font-montserrat cartButton" data-name="chocolatesundae">Add to cart</button>
                         </div>
                       </a>
                    <!-- More products... -->
@@ -298,7 +273,8 @@
         const sortingButtons = document.querySelectorAll('.sort');
 
         sortingButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (val) => {
+                val.preventDefault();
                 const sortname = button.dataset.sorter;
 
                 if (sortname === 'Alphabetical-order') {
@@ -374,6 +350,149 @@
                 }
             });
         });
+        var products = [  {foodname: 'Shrimp And Squid', name: 'shrimpandsquid', price: 30, quantity: 0, image:'../../assets/images/shrimp&squidink-pasta.avif'},
+                          {foodname: 'Short Rib', name: 'shortrib', price: 35, quantity: 0, image:'../../assets/images/short-rib.avif'}, 
+                          {foodname: 'Bacon Burger', name: 'baconburger', price: 15, quantity: 0, image:'../../assets/images/lamb-burger.avif'},
+                          {foodname: 'French Fries', name: 'frenchfries', price: 10, quantity: 0, image:'../../assets/images/fries.avif'},
+                          {foodname: 'Steak With Vegetables', name: 'steakwithvegetables', price: 35, quantity: 0, image:'../../assets/images/steak.avif'},
+                          {foodname: 'Salmon With Vegetables', name: 'salmonvegetables', price: 35, quantity: 0, image:'../../assets/images/salmon.avif'}, 
+                          {foodname: 'Scallops', name: 'scallops', price: 35, quantity: 0, image:'../../assets/images/scallops.avif'},
+                          {foodname: 'Spagetti', name: 'spagetti', price: 15, quantity: 0, image:'../../assets/images/spagetti.avif'},
+                          {foodname: 'Wine', name: 'wine', price: 10, quantity: 0, image:'../../assets/images/redwine.avif'},
+                          {foodname: 'Shot Of Whiskey', name: 'shotofwhiskey', price: 20, quantity: 0, image:'../../assets/images/liquor.avif'},
+                          {foodname: 'Pepsi-Cola', name: 'pepsicola', price: 3, quantity: 0, image:'../../assets/images/pepsi.avif'},
+                          {foodname: 'Coffee', name: 'coffee', price: 5, quantity: 0, image:'../../assets/images/coffee.avif'},
+                          {foodname: 'Cheesecake', name: 'cheesecake', price: 20, quantity: 0, image:'../../assets/images/cheesecake.avif'},
+                          {foodname: 'Chocolate Lava Cake', name: 'chocolatelavacake', price: 20, quantity: 0, image:'../../assets/images/chocolate-lava-cake.avif'},
+                          {foodname: 'Chocolate Sponge Cake', name: 'chocolatespongecake', price: 20, quantity: 0, image:'../../assets/images/chocolate-spongecake.avif'},
+                          {foodname: 'Chocolate Sundae', name: 'chocolatesundae', price: 15, quantity: 0, image:'../../assets/images/sundae.avif'}];
+
+      function clearCart(){
+          const cartsSelector = document.getElementById('cart-main-content');
+          cartsSelector.innerHTML = ""
+        }
+
+      function totalCreator(){
+          const productTotal = products.map(item => {
+          item.total = item.price * item.quantity
+        })
+      }
+
+      function subtotalCreate(){
+        let total = 0; 
+        products.map(item => {
+          total += item.total; 
+        })
+        const htmltag = document.getElementById('subtotal')
+        htmltag.innerHTML = `Total: $ ${total}`
+      }
+
+      function quantityAdder(x){
+        const selectnumber = document.getElementById(x); 
+        var contents; 
+        for (let i = 1; i <= 20; i++){
+          contents = `<option class="data-option-number" data-item=${x} data-value=${i}>` + i + `</option>`
+          selectnumber.insertAdjacentHTML("beforeend", contents)
+        }
+      }
+
+        function addtoCart(){
+          for (var i = 0; i < products.length; i++){
+            if (products[i].quantity >= 1){
+               totalCreator()
+               const cartSelector = document.getElementById('cart-main-content')   
+               cartSelector.insertAdjacentHTML("beforeend", 
+               `<div class="mb-10">
+                  <p class="font-montserrat mb-4 text-left text-xl font-semibold">${products[i].foodname}</p>
+                  <div class="grid grid-cols-2">
+                    <h3 class="font-montserrat text-center text-lg mb-4 font-semibold">Quantity:</h3>
+                    <div class="relative">
+                      <select id=${products[i].name} class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
+                          <option value="" disabled selected>${products[i].quantity}</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700">
+                        <svg class="w-4 h-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" />
+                        </svg>
+                      </div>
+                  </div>
+                  </div>
+                  <p class="font-montserrat text-lg mb-2 mt-2 font-semibold">Price: $ ${products[i].total}</p>
+                  <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden mb-2">
+                    <img src=${products[i].image} class=" h-full w-full object-cover object-center">
+                  </div>
+                  <a class="font-montserrat font-semibold text-lg text-red-600 hover:text-black active:text-violet-700 mt-2 remove-button" data-name=${products[i].name}>Remove</a>
+               </div>`
+               )  
+               quantityAdder(products[i].name)
+               subtotalCreate()
+               quantityToggle()
+            }}
+        }
+        
+        function quantityToggle() {
+          // Loop over each product in the array
+          products.forEach(item => {
+            var listen = document.getElementById(item.name);
+    
+            if (listen) {
+              // Check if the element with id item.name exists
+              listen.addEventListener('change', (option) => {
+                item.quantity = option.target.value;
+                clearCart()
+                addtoCart();
+                remover()
+              });
+            }
+        });
+      }
+
+        function remover(){
+          const removeButtons = document.querySelectorAll('.remove-button')
+          //console.log(removeButton)
+          removeButtons.forEach(button => {
+              button.addEventListener('click', () => {
+              const item = button.dataset.name
+              for (var i = 0; i < products.length; i++){
+                    if(products[i].name === item){
+                      products[i].quantity = 0; 
+                      clearCart();
+                      totalCreator()
+                      subtotalCreate() 
+                      addtoCart()
+                      remover();
+                    }
+                }
+              })
+            })
+        }
+
+        const cartButton = document.querySelectorAll('.cartButton');
+        cartButton.forEach(button => {
+            
+          button.addEventListener('click', () => {
+            const menuItem = button.dataset.name 
+            for (var i = 0; i < products.length; i++){
+              if(products[i].name === menuItem){
+                if(products[i].quantity === 0){
+                  products[i].quantity += 1; 
+                  totalCreator()
+                  subtotalCreate()
+                  clearCart()
+                  addtoCart()
+                  remover();
+                }
+                else{
+                  products[i].quantity += 1;
+                  totalCreator()
+                  subtotalCreate()
+                  clearCart()
+                  addtoCart();
+                  remover();
+                }
+              }
+            }
+          })}); 
 
         </script>
         <footer>
