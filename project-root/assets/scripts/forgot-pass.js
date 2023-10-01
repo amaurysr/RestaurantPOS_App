@@ -1,47 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Restaurant POS
-    </title>
-    <link rel="stylesheet" href="../../front-html/style.css">
-    <style>
-        form
-        {
-            background-color: #ffffff;
-            opacity: 1;
-            background-image: radial-gradient(circle at center center, #fafafa, #ffffff), repeating-radial-gradient(circle at center center, #fafafa, #fafafa, 40px, transparent 80px, transparent 40px);
-            background-blend-mode: multiply;;
-        }
-    </style>
-</head>
-<body class="bg-[url('../assets/images/fancy.avif')] bg-cover bg-no-repeat">
-    <header>
-        <nav>
-            <div class="text-center">
-                <h1 class="font-montserrat bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-10xl text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 scroll-smooth">De Luxe Restaurant</h1>
-            </div>
-        </nav>
-    </header>
-    <main class="flex flex-col justify-center items-center min-h-screen sm:py-20 md:py-24 lg:py-28 xl:py-32">
-        <form id="form" class="p-4 sm:p-8 md:p-16 lg:p-24 xl:p-40 border rounded-3xl">
-            <div class="mb-4">
-                <label for="email" class="block text-black font-montserrat font-medium">Enter your email:</label>
-                <input type="email" id="email" name="email" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your email" required>
-            </div>
-            <div class="mb-4">
-                <label for="password" class="block text-black font-montserrat font-medium">Change your password:</label>
-                <input type="password" id="password" name="password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
-            </div>
-            <div class="mb-4">
-                <label for="verify-password" class="block text-black font-montserrat font-medium">Verify your password:</label>
-                <input type="password" id="verify-password" class="bg-black text-white border rounded-3xl px-3 py-2 w-full" placeholder="Enter your password" required>
-            </div>
-            <button id ="submit" type="submit" class="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 mb-2 font-montserrat shadow-black shadow-lg">Change Password</button>
-        </form>
-        <script>
             // create a variable for our submit button using the id=""
             $submit = document.getElementById("submit");
             // We are disabling the submit button because we want our two passwords to verify each other
@@ -101,12 +57,3 @@
                 console.error(err);
             }
             }});
-        </script>
-    </main>
-    <footer>
-        <div>
-            <p class="bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 font-montserrat text-white text-center py-4">&copy; 2023 My Website</p>
-        </div>
-    </footer>
-</body>
-</html>

@@ -3899,6 +3899,10 @@ details.collapse summary::-webkit-details-marker{
   margin-top: 0.25rem;
 }
 
+.mt-2{
+  margin-top: 0.5rem;
+}
+
 .mt-4{
   margin-top: 1rem;
 }
@@ -3933,6 +3937,10 @@ details.collapse summary::-webkit-details-marker{
 
 .hidden{
   display: none;
+}
+
+.h-1{
+  height: 0.25rem;
 }
 
 .h-4{
@@ -4695,6 +4703,10 @@ details.collapse summary::-webkit-details-marker{
 
 .pt-7{
   padding-top: 1.75rem;
+}
+
+.text-left{
+  text-align: left;
 }
 
 .text-center{

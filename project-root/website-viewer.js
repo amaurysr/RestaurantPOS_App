@@ -32,6 +32,6 @@ export default function webviewer() {
   })
 
   app.listen(5000, () => {
-    console.log("Website is running on port 5000");
+    console.log("Website is running on localhost:5000");
   });
 }
