@@ -15,8 +15,68 @@
             </nav>
         </header>
         <main class="relative">
-            <div class="bg-black/60">
-                <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner">
+            <div class="bg-black/60" id="place-order" hidden>
+              <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner flex flex-col min-h-screen">
+                <div class ="grid grid-cols-2 pb-10">
+                  <div>
+                    <button id ="backButton1" class = "flex justify-center btn">Back</button>
+                  </div>
+                </div>
+                <div>
+                  <h1 class="font-montserrat text-4xl text-black mb-10 text-center font-extrabold">Order Summary</h1>
+                  <div class="flex flex-row mt-20" id = "order-content">
+                    
+                  </div>
+                  <button type="submit" class="bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat mt-20">Place Order</button>
+                </div>
+              </div>
+            </div>
+            <div class="bg-black/60 mb-auto" id="item-description" hidden>
+              <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner flex flex-col min-h-screen">
+                <div class ="grid grid-cols-2 pb-10">
+                  <div>
+                    <button id ="backButton" class = "flex justify-center btn">Back</button>
+                  </div>
+                  <div class="flex justify-center drawer drawer-end">
+                    <input id="my-drawer1" type="checkbox" class="drawer-toggle"/>
+                    <div class="drawer-content">
+                      <label for="my-drawer1" class="btn1 drawer-button">
+                        <svg class="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="50" height="50">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                      </label>
+                    </div>
+                    <div class="drawer-side z-[1]">
+                      <label for="my-drawer1" class="drawer-overlay overflow-y-scroll max-h-max"></label>
+                      <ul class="menu p-4 w-80 min-h-full bg-white text-base-content overflow-y-auto max-h-max">
+                        <!-- Sidebar content here -->
+                        <div class="object-fit">
+                          <h1 class="font-montserrat font-semibold text-4xl text-black mb-10">My Cart</h1>
+                          <div id="cart-main-content">
+                          <!--main content here-->
+                          </div>
+                          <h1 class="subtotal font-montserrat font-semibold text-2xl mb-6">Total: $</h1>
+                          <button class="check-out bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat">Check Out</button>
+                        </div>
+                      </ul>
+                    </div>
+                  </div> 
+                </div>
+                <div class="flex flex-row mt-20" id = "description-content">
+                  <div class="xs:aspect-h-8 xs:aspect-w-8 sm:aspect-h-8 sm:aspect-w-8 md:aspect-h-6 md:aspect-w-6 lg:aspect-h-1 lg:aspect-1 h-full w-full overflow-hidden rounded-lg bg-gray-200 mr-10 shadow-xl shadow-black">
+                    <img src="../../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
+                  </div>
+                  <div class="flex flex-col w-3/6">
+                    <h1 class="font-montserrat mb-10 font-bold text-xl">Shrimp and Squid</h1>
+                    <p class="font-montserrat mb-5">Our Shrimp and Squid Delight combines plump shrimp and tender squid, sautéed to perfection with aromatic herbs and spices. Served with a luscious garlic butter sauce and fluffy rice, it's a culinary masterpiece celebrating the ocean's finest flavors. Dive into a symphony of seafood perfection at our restaurant today!</p> 
+                    <p class="font-montserrat font-semibold">Quantity: </p> 
+                    <button class="bg-blue-500 text-white rounded w-3/6 hover:bg-blue-600 mb-2 font-montserrat cartButton ml-auto mt-20" data-name="shrimpandsquid">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-black/60" id="main-menu">
+                <div class="bg-white bg-contain rounded-xl mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8 shadow-black shadow-inner flex flex-col min-h-screen">
                   <div class="grid grid-cols-3 pb-10">
                     <div class="dropdown dropdown-hover flex justify-start">
                       <label tabindex="0" class="btn font-montserrat">Sort</label>
@@ -36,7 +96,7 @@
                           <li class="category-button" data-category="drink"><a>Drinks</a></li>
                           <li class="category-button" data-category="dessert"><a>Desserts</a></li>
                       </ul>
-                  </div>
+                    </div>
                       <div class="flex justify-center drawer drawer-end">
                         <input id="my-drawer" type="checkbox" class="drawer-toggle"/>
                         <div class="drawer-content">
@@ -52,11 +112,11 @@
                             <!-- Sidebar content here -->
                             <div class="object-fit">
                               <h1 class="font-montserrat font-semibold text-4xl text-black mb-10">My Cart</h1>
-                              <div id="cart-main-content">
+                              <div id="cart-main-content1">
                               <!--main content here-->
                               </div>
-                              <h1 id="subtotal" class="font-montserrat font-semibold text-2xl mb-6">Total: $</h1>
-                              <button type="submit" class="bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat">Check Out</button>
+                              <h1 class="subtotal font-montserrat font-semibold text-2xl mb-6">Total: $</h1>
+                              <button class="check-out bg-blue-500 text-white rounded w-full text-xl hover:bg-blue-600 mb-2 font-montserrat">Check Out</button>
                             </div>
                           </ul>
                         </div>
@@ -65,8 +125,8 @@
               
                   <div id="menu" class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     <a class="entree" data-name="shrimpandsquid" data-price="30">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="shrimpandsquid">
+                        <img src="../../assets/images/shrimp&squidink-pasta.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shrimp And Squid</h3>
                       <div class="grid grid-cols-2">
@@ -75,8 +135,8 @@
                       </div>
                     </a>
                     <a class="entree" id="entree" data-name="shortrib" data-price="35">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/short-rib.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="shortrib">
+                        <img src="../../assets/images/short-rib.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Short Rib</h3>
                       <div class="grid grid-cols-2">
@@ -85,8 +145,8 @@
                       </div>
                     </a>
                     <a class="entree" id="entree" data-name="baconburger" data-price="15">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/lamb-burger.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="baconburger">
+                        <img src="../../assets/images/lamb-burger.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Bacon Burger</h3>
                       <div class="grid grid-cols-2">
@@ -95,8 +155,8 @@
                       </div>
                     </a>
                     <a class="entree" id="entree" data-name="frenchfries" data-price="10">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/fries.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class=" image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="frenchfries">
+                        <img src="../../assets/images/fries.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">French Fries</h3>
                       <div class="grid grid-cols-2">
@@ -105,8 +165,8 @@
                       </div>
                     </a>
                     <a class="main" id="main" data-name="steakwithvegetables" data-price="35">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/steak.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="steakwithvegetables">
+                        <img src="../../assets/images/steak.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Steak with Vegetables</h3>
                       <div class="grid grid-cols-2">
@@ -115,8 +175,8 @@
                       </div>
                     </a>
                     <a class="main" id="main" data-name="salmonvegetables" data-price="35">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/salmon.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="salmonvegetables">
+                        <img src="../../assets/images/salmon.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Salmon with Vegetables</h3>
                       <div class="grid grid-cols-2">
@@ -125,8 +185,8 @@
                       </div>
                     </a>
                     <a class="main" id="main" data-name="scallops" data-price="35">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/scallops.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="scallops">
+                        <img src="../../assets/images/scallops.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center ">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Scallops</h3>
                       <div class="grid grid-cols-2">
@@ -135,8 +195,8 @@
                       </div>
                     </a>
                     <a class="main" id="main" data-name="spagetti" data-price="15">
-                      <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                        <img src="../../assets/images/spagetti.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                      <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="spagetti">
+                        <img src="../../assets/images/spagetti.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center ">
                       </div>
                       <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Spagetti</h3>
                       <div class="grid grid-cols-2">
@@ -145,8 +205,8 @@
                       </div>
                     </a>
                     <a class="drink" id = "drink" data-name="wine" data-price="10">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/redwine.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="wine">
+                          <img src="../../assets/images/redwine.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Wine</h3>
                         <div class="grid grid-cols-2">
@@ -155,8 +215,9 @@
                         </div>
                       </a>
                       <a class="drink" id = "drink" data-name="shotofwhiskey" data-price="20">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/liquor.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="shotofwhiskey">
+
+                          <img src="../../assets/images/liquor.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Shot of Whiskey</h3>
                         <div class="grid grid-cols-2">
@@ -165,8 +226,8 @@
                         </div>
                       </a>
                       <a class="drink" id = "drink" data-name="pepsicola" data-price="3">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/pepsi.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="pepsicola">
+                          <img src="../../assets/images/pepsi.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Pepsi-cola</h3>
                         <div class="grid grid-cols-2">
@@ -175,8 +236,8 @@
                         </div>
                       </a>
                       <a class="drink" id = "drink" data-name="coffee" data-price="5">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/coffee.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="coffee">
+                          <img src="../../assets/images/coffee.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Coffee</h3>
                         <div class="grid grid-cols-2">
@@ -185,8 +246,8 @@
                         </div>
                       </a>
                       <a class="dessert" id="dessert" data-name="cheesecake" data-price="20">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/cheesecake.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="cheesecake">
+                          <img src="../../assets/images/cheesecake.avif" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Cheesecake</h3>
                         <div class="grid grid-cols-2">
@@ -195,8 +256,8 @@
                         </div>
                       </a>
                       <a class="dessert" id="dessert" data-name="chocolatelavacake" data-price="20">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/chocolate-lava-cake.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="chocolatelavacake">
+                          <img src="../../assets/images/chocolate-lava-cake.avif" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Lava Cake</h3>
                         <div class="grid grid-cols-2">
@@ -205,8 +266,8 @@
                         </div>
                       </a>
                       <a class="dessert" id="dessert" data-name="chocolatespongecake" data-price="20">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/chocolate-spongecake.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class=" image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="chocolatespongecake">
+                          <img src="../../assets/images/chocolate-spongecake.avif" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Spongecake</h3>
                         <div class="grid grid-cols-2">
@@ -215,8 +276,8 @@
                         </div>
                       </a>
                       <a class="dessert" id="dessert" data-name="chocolatesundae" data-price="15">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg">
-                          <img src="../../assets/images/sundae.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        <div class="image-shower aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 shadow-black shadow-lg hover:opacity-75 active:opacity-100" data-name="chocolatesundae">
+                          <img src="../../assets/images/sundae.avif" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center">
                         </div>
                         <h3 class="mt-4 text-sm text-gray-700 font-montserrat">Chocolate Sundae</h3>
                         <div class="grid grid-cols-2">
@@ -229,7 +290,26 @@
                 </div>
               </div>
         </main>
-        <script src="../../assets/scripts/client-main-land.js"></script>
+        <script type="module" src="../../assets/scripts/client-main-land.js"></script>
+        <script type="module" src="../../assets/scripts/client-main-land-description.js"></script>
+        <script>
+          const placeorder = document.getElementById('place-order')
+          const mainmenu = document.getElementById('main-menu')
+          const itemdescrip = document.getElementById('item-description')
+          const backButton1 = document.getElementById('backButton1')
+          const checkoutButton = document.getElementsByClassName('check-out')
+          for (let i = 0; i < checkoutButton.length; i++){
+          checkoutButton[i].addEventListener('click', ()=> {
+            console.log('clicked')
+            mainmenu.setAttribute('hidden', '')
+            itemdescrip.setAttribute('hidden', "")
+            placeorder.removeAttribute('hidden')
+          })}
+          backButton1.addEventListener('click', () => {
+            placeorder.setAttribute('hidden', '')
+            mainmenu.removeAttribute('hidden')
+          })
+        </script>
         <footer>
             <div>
                 <p class= "font-montserrat bg-gradient-to-r from-slate-500/50 via-gray-600/70 to-zinc-900/70 text-opacity-100 text-white text-center py-4">&copy; 2023 My Website</p>

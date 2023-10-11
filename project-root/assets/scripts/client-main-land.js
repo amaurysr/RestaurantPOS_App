@@ -138,11 +138,16 @@
       function clearCart(){
           const cartsSelector = document.getElementById('cart-main-content');
           cartsSelector.innerHTML = ""
+          const cartsSelector1 = document.getElementById('cart-main-content1');
+          cartsSelector1.innerHTML = ""
+          const placeordercontent = document.getElementById('order-content');
+          placeordercontent.innerHTML = ""
         }
 
       function totalCreator(){
           const productTotal = products.map(item => {
           item.total = item.price * item.quantity
+          return
         })
       }
 
@@ -151,17 +156,23 @@
         products.map(item => {
           total += item.total; 
         })
-        const htmltag = document.getElementById('subtotal')
-        htmltag.innerHTML = `Total: $ ${total}`
+        // const htmltag = document.getElementById('subtotal')
+        const htmltag = document.getElementsByClassName('subtotal')
+        for(var i = 0; i < htmltag.length; i++){
+          htmltag[i].innerHTML = `Total: $ ${total}`
+        }
       }
 
       function quantityAdder(x){
-        const selectnumber = document.getElementById(x); 
+        const selectnumber = document.getElementsByClassName(x); 
         var contents; 
         for (let i = 1; i <= 20; i++){
           contents = `<option class="data-option-number" data-item=${x} data-value=${i}>` + i + `</option>`
-          selectnumber.insertAdjacentHTML("beforeend", contents)
+          for(let i = 0; i < selectnumber.length; i++) {
+            selectnumber[i].insertAdjacentHTML("beforeend", contents)
+          }
         }
+        return
       }
 
         function addtoCart(){
@@ -175,7 +186,7 @@
                   <div class="grid grid-cols-2">
                     <h3 class="font-montserrat text-center text-lg mb-4 font-semibold">Quantity:</h3>
                     <div class="relative">
-                      <select id=${products[i].name} class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
+                      <select class="${products[i].name} block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
                           <option value="" disabled selected>${products[i].quantity}</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700">
@@ -192,25 +203,76 @@
                   <a class="font-montserrat font-semibold text-lg text-red-600 hover:text-black active:text-violet-700 mt-2 remove-button" data-name=${products[i].name}>Remove</a>
                </div>`
                )  
+               console.log(products[i].quantity)
+               const cartSelector1 = document.getElementById('cart-main-content1')   
+               cartSelector1.insertAdjacentHTML("beforeend", 
+               `<div class="mb-10">
+                  <p class="font-montserrat mb-4 text-left text-xl font-semibold">${products[i].foodname}</p>
+                  <div class="grid grid-cols-2">
+                    <h3 class="font-montserrat text-center text-lg mb-4 font-semibold">Quantity:</h3>
+                    <div class="relative">
+                      <select class="${products[i].name} block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
+                          <option value="" disabled selected>${products[i].quantity}</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700">
+                        <svg class="w-4 h-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                          <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" />
+                        </svg>
+                      </div>
+                  </div>
+                  </div>
+                  <p class="font-montserrat text-lg mb-2 mt-2 font-semibold">Price: $ ${products[i].total}</p>
+                  <div class="aspect-h-1 aspect-w-1 rounded-xl overflow-hidden mb-2">
+                    <img src=${products[i].image} class=" h-full w-full object-cover object-center">
+                  </div>
+                  <a class="font-montserrat font-semibold text-lg text-red-600 hover:text-black active:text-violet-700 mt-2 remove-button" data-name=${products[i].name}>Remove</a>
+               </div>`
+               )
+               const placeordercontent = document.getElementById('order-content')
+               placeordercontent.insertAdjacentHTML("beforeend",
+               `<div class=" aspect-h-1 aspect-1 xs:h-3/4 xs:w-3/4 h-full w-full overflow-hidden rounded-lg bg-gray-200 xs:mr-10 sm:mr-10 md:mr-20 lg:mr-20 xl:mr-20 shadow-xl shadow-black">
+               <img src=${products[i].image} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center">
+             </div>
+             <div class="flex flex-col w-3/6">
+               <h1 class="font-montserrat xs:mb-10 sm:mb-10 md:mb-10 lg:mb-20 font-bold xs:text-md sm:text-xl">${products[i].foodname}</h1>
+               <div class="flex flex-row">
+                 <p class="font-montserrat font-semibold xs:text-sm sm:text-lg mt-1 mr-4">Quantity: </p> 
+                 <div class="relative">
+                   <select class="${products[i].name} block appearance-none w-full h-full font-montserrat text-sm bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
+                       <option value="" disabled selected>${products[i].quantity}</option>
+                   </select>
+                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 text-gray-700">
+                     <svg class="w-4 h-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                       <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" />
+                     </svg>
+                   </div>
+                 </div>
+               </div>
+               <p class="font-montserrat xs:text-sm sm:text-lg mb-2 xs:mt-10 sm:mt-10 md:mt-10 lg:mt-20 font-semibold">Price: $ ${products[i].total}</p>
+               <a class="font-montserrat font-semibold xs:text-sm md:text-md lg:text-lg text-red-600 hover:text-black active:text-violet-700 xs:mt-10 sm:mt-10 md:mt-10 lg:mt-20 remove-button" data-name=${products[i].name}>Remove</a>`)
                quantityAdder(products[i].name)
                subtotalCreate()
                quantityToggle()
+               buttonListener()
+               remover()
+               return 
             }}
         }
         
         function quantityToggle() {
           // Loop over each product in the array
           products.forEach(item => {
-            var listen = document.getElementById(item.name);
-    
-            if (listen) {
-              // Check if the element with id item.name exists
-              listen.addEventListener('change', (option) => {
-                item.quantity = option.target.value;
-                clearCart()
-                addtoCart();
-                remover()
-              });
+            var listen = document.getElementsByClassName(item.name);
+            
+            for(let i = 0; i < listen.length; i++){
+              listen[i].addEventListener('change', (option) => {
+                console.log(item.quantity)
+                item.quantity = option.target.value; 
+                clearCart();
+                addtoCart(); 
+                remover();
+                return
+              })
             }
         });
       }
@@ -229,16 +291,19 @@
                       subtotalCreate() 
                       addtoCart()
                       remover();
+                      return 
                     }
                 }
               })
             })
         }
 
-        const cartButton = document.querySelectorAll('.cartButton');
-        cartButton.forEach(button => {
-            
-          button.addEventListener('click', () => {
+
+function buttonListener(){
+        const cartButton = document.getElementsByClassName('cartButton');
+        for(let i = 0; i < cartButton.length; i++){
+          const button = cartButton[i]
+          button.addEventListener('click', () =>{
             const menuItem = button.dataset.name 
             for (var i = 0; i < products.length; i++){
               if(products[i].name === menuItem){
@@ -249,6 +314,7 @@
                   clearCart()
                   addtoCart()
                   remover();
+                  return
                 }
                 else{
                   products[i].quantity += 1;
@@ -257,7 +323,14 @@
                   clearCart()
                   addtoCart();
                   remover();
+                  return
                 }
-              }
-            }
-          })}); 
+              }}
+          })
+          }}; 
+
+buttonListener()
+
+export{buttonListener}
+
+
